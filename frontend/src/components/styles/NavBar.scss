@@ -1,0 +1,22 @@
+a {
+    text-decoration: none;
+}
+.navbar {
+    margin: 2%;
+    .navbar-block {
+        margin-bottom: 2%;
+        color: #fff;
+        border: 5px solid #fff;
+        width: 80px;
+        padding: .05em 1em;
+        background-color: rgba(0, 0, 0, 0.2);
+        box-shadow: 3px 3px 3px rgb(213, 198, 198);
+        
+    
+        p {
+            text-align: center;
+            font-weight: 500;
+            text-decoration: none;
+        }
+    }
+}

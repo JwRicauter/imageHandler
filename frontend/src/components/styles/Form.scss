@@ -1,0 +1,42 @@
+
+.form-group {
+    input, textarea {
+        height: 30px;
+        width: 550px;
+        font-size: 20px;
+        background-color: rgba(0, 0, 0, 0.2);
+        border: 1px solid white;
+        padding: 1% 2%;
+        margin-bottom: 3%;
+    }
+
+    input:hover, textarea:hover{
+        border: 1px solid rgba(247, 223, 145, 0.782)
+    }
+
+    label{
+        width: 550px;
+        border: dashed 2px rgba(0, 0, 0, 0.2);
+        max-width: none;
+        min-width: 400px;
+        width: 550px;
+        margin-bottom: 3%;
+        svg {
+            display: none;
+        }
+    }
+
+    button {
+        display: block;
+        margin: auto;
+        background-color: rgba(0, 0, 0, 0.2);
+        border: 1px solid white;
+        padding: 1% 2%;
+        box-shadow: 3px 3px 3px rgb(213, 198, 198);
+
+    }
+
+    button:hover {
+        border: 1px solid rgba(247, 223, 145, 0.782)
+    }
+}
