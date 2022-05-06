@@ -1,0 +1,14 @@
+.box-content {
+    display: flex;
+
+    .navbar {
+        flex: 1 1 auto;
+    }
+    .page {
+        flex: 6 1 auto;
+        margin-top: 3%;
+    }
+    .pad {
+        flex: 1 1 auto;
+    }
+}
