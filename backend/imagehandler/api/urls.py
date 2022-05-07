@@ -1,4 +1,4 @@
-from .views                 import Create, ImagesList, csrf
+from .views                 import Create, ImagesList, Detail, Update, csrf
 from django.urls            import path
 
 app_name = "api"
@@ -13,6 +13,16 @@ urlpatterns = [
         'list', 
         ImagesList.as_view(), 
         name='list'
+    ),
+    path(
+        'detail', 
+        Detail.as_view(), 
+        name='detail'
+    ),
+    path(
+        'update',
+        Update.as_view(),
+        name='update'
     ),
     path(
         'csrf',

@@ -1,4 +1,3 @@
-import base64
 import json
 
 from rest_framework import status, generics
@@ -44,8 +43,58 @@ class Create(generics.GenericAPIView):
 
         except Exception as e:
             print(e)
-            return Response({"message": "Upload Failed", "status": "200"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({"message": "Upload Failed"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
+
+class Detail(generics.GenericAPIView):
+
+    # This will retrieve the detail of the Image
+    def get(self, request):
+        get = request.GET or {}
+        id = get.get('id')
+        image = Image.objects.get(id = id)
+        
+        comments_objects = ImageComment.objects.filter(image = image)
+        comments = []
+        for object in list(comments_objects):
+            comments.append(object.comment)
+        
+
+        return Response(
+            {
+                "file": get_file(image.file_name),
+                'title': image.title,
+                'file_name': image.file_name,
+                'comments': comments
+            }, 
+            status=status.HTTP_200_OK
+
+        )
+
+class Update(generics.GenericAPIView):
+
+    
+    def post(self, request):
+        try:
+            data = json.loads(request.body.decode('utf-8'))
+            id = data['id']
+            image = Image.objects.get(id = id)
+            comments = data['comments']
+            for comment in comments:
+                c = ImageComment(image=image, comment=comments[comment])
+                c.save()
+            
+            return Response({"message": "Upldate Successful"}, status=status.HTTP_200_OK)
+
+        except Exception as e:
+            print(e)
+            return Response({"message": "Upldate Failed"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+
+        print(id)
+        print(comments)
+
+
 class ImagesList(generics.ListCreateAPIView):
     queryset = Image.objects.all()
     serializer_class = ImageSerializer
@@ -56,3 +105,8 @@ class ImagesList(generics.ListCreateAPIView):
         print(queryset)
         serializer = ImageSerializer(queryset, many=True)
         return Response(serializer.data)
+
+
+
+
+
