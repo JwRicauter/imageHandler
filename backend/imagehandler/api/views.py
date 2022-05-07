@@ -91,8 +91,6 @@ class Update(generics.GenericAPIView):
             return Response({"message": "Upldate Failed"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
 
-        print(id)
-        print(comments)
 
 
 class ImagesList(generics.ListCreateAPIView):
@@ -102,7 +100,6 @@ class ImagesList(generics.ListCreateAPIView):
     def list(self, request):
         # Note the use of `get_queryset()` instead of `self.queryset`
         queryset = self.get_queryset()
-        print(queryset)
         serializer = ImageSerializer(queryset, many=True)
         return Response(serializer.data)
 
