@@ -1,3 +1,5 @@
+import {Buffer} from 'buffer';
+import dicomParser from 'dicom-parser';
 const API_HOST = 'http://localhost:8000/api';
 let _csrfToken = null;
 
@@ -38,7 +40,23 @@ export async function upload(data) {
     return response.ok;
 }
 
-export async function list(data) {
+export async function update(data) {
+  
+  const response = await fetch(`${API_HOST}/update`, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+          'X-CSRFToken': await getCsrfToken(),
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+      },
+      body: data
+  });
+  const r = await response.json();
+  return response.ok;
+}
+
+export async function list() {
 
   const response = await fetch(`${API_HOST}/list`, {
     method: 'GET',
@@ -50,3 +68,16 @@ export async function list(data) {
   const r = await response.json();
   return r;
 }
+
+export async function detail(id) {
+  const response = await fetch(`${API_HOST}/detail?id=${id}`, {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+        'Content-Type': 'application/json'
+    }
+  });
+  let r = await response.json();
+  return r;
+}
+
