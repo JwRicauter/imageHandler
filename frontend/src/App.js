@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from "./Layout";
 import Home from './pages/Home';
 import New from './pages/New';
+import Detail from './pages/Detail';
 
 import './App.scss';
 
@@ -24,6 +25,10 @@ function App() {
           <Route 
             path="/about" exact 
             element={<New />} 
+          />
+          <Route
+            path="/image/:id" exact
+            element={<Detail />}
           />
         </Routes>
       </Layout>

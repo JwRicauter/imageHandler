@@ -7,18 +7,17 @@ const Home = () => {
 
     const [items, setItems] = useState([]);
     
-
     useEffect(() => {
         list().then(res => {
             setItems(res);
         })
-    }, [])
+    }, [setItems])
 
     return (
         <>
             { items.map(
                 item => 
-                <Link to={`/cases/${item.id}`} key={item.id}>  
+                <Link to={`/image/${item.id}`} key={item.id}>  
                     <ImageItem id={item.id} name={item.title}/>
                 </Link>
              )}

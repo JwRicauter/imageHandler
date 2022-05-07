@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Comments from '../components/Comments';
 import './styles/Form.scss';
 import { FileUploader } from "react-drag-drop-files";
 
@@ -20,20 +21,12 @@ const Form = ({fileHandler, inputHandler}) => {
             />
             <FileUploader handleChange={fileHandler} name="file" />
 
-
-            {Array.from(Array(comments), (e, i) => {
-                return <textarea 
-                    key={i+1}
-                    placeholder={`Comment ${i + 1}`}
-                    onClick={inputHandler} 
-                    name={`comment_${i + 1}`}
-                    onChange={inputHandler} 
-                />
-            })}
-
-            <button onClick={addComment}>
-                Click here to add another comment
-            </button>
+            
+            <Comments 
+             clickHandler={addComment} 
+             comments={comments}
+             inputHandler={inputHandler}
+            />
         </div>
 
     )
