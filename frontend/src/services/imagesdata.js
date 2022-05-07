@@ -1,5 +1,4 @@
-import {Buffer} from 'buffer';
-import dicomParser from 'dicom-parser';
+
 const API_HOST = 'http://localhost:8000/api';
 let _csrfToken = null;
 
@@ -36,7 +35,6 @@ export async function upload(data) {
         },
         body: formData
     });
-    const r = await response.json();
     return response.ok;
 }
 
@@ -52,7 +50,6 @@ export async function update(data) {
       },
       body: data
   });
-  const r = await response.json();
   return response.ok;
 }
 

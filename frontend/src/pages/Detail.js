@@ -38,7 +38,7 @@ const Detail = () => {
             setItem(res);
 
         })
-    }, [])
+    }, [id])
 
     return (
         <div className='detail'>
