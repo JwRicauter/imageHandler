@@ -5,6 +5,8 @@ import Layout from "./Layout";
 import Home from './pages/Home';
 import New from './pages/New';
 import Detail from './pages/Detail';
+import About from './pages/About';
+
 
 import './App.scss';
 
@@ -24,7 +26,7 @@ function App() {
           />
           <Route 
             path="/about" exact 
-            element={<New />} 
+            element={<About />} 
           />
           <Route
             path="/image/:id" exact
