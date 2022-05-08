@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from "react-router-dom";
+
 import Comments from '../components/Comments';
 import FormButton from '../components/FormButton';
+import ImageDisplay from '../components/ImageDisplay';
+
 import { detail, update } from '../services/imagesdata';
-import { useParams } from "react-router-dom";
+
 import './styles/Detail.scss';
 
 const Detail = () => {
@@ -28,6 +32,7 @@ const Detail = () => {
             setComments(0)
         });
     }
+
     const inputHandler = (e) => {
         commentsArray[e.target.name] = e.target.value;
         setCommentArray(commentsArray);
@@ -35,8 +40,7 @@ const Detail = () => {
 
     useEffect(() => {
         detail(id).then(res => {
-            setItem(res);
-
+            setItem(res)
         })
     }, [id])
 
@@ -45,10 +49,12 @@ const Detail = () => {
           <p><span className='labeled'>Title:</span> {item.title}</p>
           <br></br>
           <p><span className='labeled'>Image:</span> </p>
-          { item.file &&
-            <img src={`data:image/jpeg;base64,${item.file}`} width='400px' alt="" />
-          }
+            {item && item.file_name && 
+                <ImageDisplay filename={item.file_name} />
+            }
+            
           <br></br>
+
           <p><span className='labeled'>Comments:</span> </p>
 
           {
