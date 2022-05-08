@@ -6,29 +6,33 @@ const NavBar = () => {
 
     return (
         <div className='navbar'>
-            <Link to='/' className=''>
-                <div className='navbar-block'>
-                    <p>
-                        Inicio
-                    </p>
+            <div className='row'>
+                <div className='col-12'>
+                    <Link to='/' className=''>
+                        <div className='navbar-block'>
+                            <p>Inicio</p>
+                        </div>
+                    </Link>
                 </div>
-            </Link>
-
-            <Link to='/new' className=''>
-                <div className='navbar-block'>
-                    <p>
-                        New
-                    </p>
+            </div>
+            <div className='row mt-2'>
+                <div className='col-12'>
+                    <Link to='/new' className=''>
+                        <div className='navbar-block'>
+                            <p>New</p>
+                        </div>
+                    </Link>
                 </div>
-            </Link>
-
-            <Link to='/about' className=''>
-                <div className='navbar-block'>
-                    <p>
-                        About
-                    </p>
+            </div>
+            <div className='row mt-2'>
+                <div className='col-12'>
+                    <Link to='/about' className=''>
+                        <div className='navbar-block'>
+                            <p>About</p>
+                        </div>
+                    </Link>
                 </div>
-            </Link>
+            </div>
         </div>
     )
 }

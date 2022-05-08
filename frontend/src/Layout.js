@@ -6,11 +6,16 @@ const Layout = ({children}) =>{
     return(
         <>
             <Header />
-            <div className='box-content'>
-                <NavBar />
-                <div className='page'>
-                    { children }
+            <div className='row mt-5 pb-5'>
+                <div className='col-1'></div>
+                <div className='col-2'>
+                    <NavBar />
+                </div> 
+                <div className='col-6'>
+                { children }
                 </div>
+                <div className='col-3'></div>
+           
             </div>
         </>
     )

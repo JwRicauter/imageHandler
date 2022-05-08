@@ -46,38 +46,37 @@ const Detail = () => {
 
     return (
         <div className='detail'>
-          <p><span className='labeled'>Title:</span> {item.title}</p>
-          <br></br>
-          <p><span className='labeled'>Image:</span> </p>
+          <p className='mb-5'><span className='labeled'>Title:</span> {item.title}</p>
+          
+          <p className='mb-4'><span className='labeled'>Image:</span> </p>
             {item && item.file_name && 
                 <ImageDisplay filename={item.file_name} />
             }
             
-          <br></br>
-
-          <p><span className='labeled'>Comments:</span> </p>
-
+          
+          <p className='mt-5'><span className='labeled'>Comments:</span> </p>
+          
+          <ul>
           {
               item.comments && item.comments.map(
-                  (comment, key) => <p key={key}>{comment}</p>
+                  (comment, key) => <li><p key={key}>{comment}</p></li>
               )
           }
+          </ul>
 
-
-          
-          <br></br>
-          <br></br>
-          <div className='form-group'>
-            <Comments 
-                clickHandler={addComment} 
-                comments={comments}
-                inputHandler={inputHandler}
-                />
-          </div>
-          <br></br><br></br>
-          <FormButton
-            handleSubmit={handleSubmit}
+          <Comments 
+            clickHandler={addComment} 
+            comments={comments}
+            inputHandler={inputHandler}
           />
+
+
+          {
+            comments > 0 &&
+            <FormButton
+                handleSubmit={handleSubmit}
+            />
+          }
         </div>
     )
 }

@@ -1,10 +1,11 @@
 import React from 'react';
-import './styles/FormButton.scss';
+
 
 const FormButton = ({handleSubmit}) => {
 
     return (
         <button
+            className='btn btn-outline-success'
             onClick={handleSubmit}
         >
             <strong>Submit</strong>

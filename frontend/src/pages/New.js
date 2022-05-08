@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 import Form from '../components/Form';
 import FormButton from "../components/FormButton";
@@ -10,7 +12,7 @@ const New = () => {
     const [title, setTitle] = useState('');
     const [comments, setComments] = useState({})
     const [flag, setFlag] = useState(false);
-
+    const navigate = useNavigate();
 
     const fileHandler = (file) => {
         setFile(file);
@@ -29,11 +31,15 @@ const New = () => {
         let result = upload(
             {'file': file, 'title': title, 'comments': JSON.stringify(comments)}
         )
+        console.log(result);
         result.then(isOk => {
+            console.log(isOk);
+            setFlag(isOk);
             setTitle('');
             setComments({});
             setFile(null);
-            setFlag(isOk);
+            
+            if (isOk) navigate("/");
         });
 
     }

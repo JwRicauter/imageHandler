@@ -1,14 +1,24 @@
-.box-content {
-    display: flex;
+@import "~bootstrap/scss/bootstrap";
+@import './variables.scss';
 
-    .navbar {
-        flex: 1 1 auto;
-    }
-    .page {
-        flex: 6 1 auto;
-        margin-top: 3%;
-    }
-    .pad {
-        flex: 1 1 auto;
-    }
+a {
+    text-decoration: none;
+}
+
+input, textarea {
+    height: 30px;
+    width: 550px;
+    font-size: 20px;
+    background-color: $gray-bg;
+    border: 1px solid white;
+    padding: 1% 2%;
+    margin-bottom: 3%;
+}
+
+textarea {
+    height: 100px !important;
+}
+
+input:hover, textarea:hover{
+    border: 1px solid rgba(247, 223, 145, 0.782)
 }

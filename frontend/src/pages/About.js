@@ -20,13 +20,12 @@ const About = () => {
             <p>
                 Storybook stories and modularization of all components are also used in the front end system.
                 I found difficulties to show dicom files in the image detail since with the cornerstone 
-                documentation I couldn't come up with an acceptable solution
+                documentation I couldn't come up with a quick implementation.
             </p>
             <p>
                 It would improve many aspects of this project, the first is an error when refreshing the page. 
                 I know that I have to better configure the django templates proxy with react but I preferred to 
-                relegate it. Improvements in the design of the api, in the user interface (which could use some 
-                system such as bootstrap or material), as well as adding all the stories from the storybook, many 
+                relegate it. Improvements in the design of the api, as well as adding all the stories from the storybook, many 
                 more unit tests, among others, are pending.
             </p>
         </div>

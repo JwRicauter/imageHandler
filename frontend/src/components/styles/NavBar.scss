@@ -1,22 +1,20 @@
-a {
-    text-decoration: none;
-}
-.navbar {
-    margin: 2%;
-    .navbar-block {
-        margin-bottom: 2%;
-        color: #fff;
-        border: 5px solid #fff;
-        width: 80px;
-        padding: .05em 1em;
-        background-color: rgba(0, 0, 0, 0.2);
-        box-shadow: 3px 3px 3px rgb(213, 198, 198);
-        
-    
-        p {
-            text-align: center;
-            font-weight: 500;
-            text-decoration: none;
-        }
+@import '../../variables.scss';
+
+.navbar-block {
+    padding: .05em 1em;
+    color: #fff;
+    border: 5px solid #fff;
+    width: 150px;
+    background-color: $gray-bg;
+    box-shadow: 3px 3px 3px rgb(213, 198, 198);
+    p {
+        margin-bottom: 0;
+        padding: 1em;
+        text-align: center;
+        text-decoration: none;
+    }
+    a {
+        text-decoration: none;
+
     }
 }
