@@ -62,7 +62,6 @@ class Detail(generics.GenericAPIView):
 
         return Response(
             {
-                "file": get_file(image.file_name),
                 'title': image.title,
                 'file_name': image.file_name,
                 'comments': comments

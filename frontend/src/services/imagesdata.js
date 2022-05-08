@@ -1,5 +1,5 @@
 
-const API_HOST = 'http://localhost:8000/api';
+const API_HOST = process.env.REACT_APP_API_HOST;
 let _csrfToken = null;
 
 async function generateForm(data) {
